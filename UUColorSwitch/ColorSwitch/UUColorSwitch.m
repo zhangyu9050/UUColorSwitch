@@ -17,7 +17,7 @@ NSString *const UUElementToValue   = @"UUElementToValue";
 
 @interface UUColorSwitch()
 
-@property (nonatomic, strong) CAShapeLayer *shape;
+@property (nonatomic, strong) CAShapeLayer *shapeCircle;
 
 @property (nonatomic, assign) CGFloat radius;
 
@@ -32,20 +32,20 @@ NSString *const UUElementToValue   = @"UUElementToValue";
     CGFloat y = MAX(CGRectGetMidY(self.frame), self.superview.frame.size.height - CGRectGetMidY(self.frame));
     self.radius = sqrt(x * x + y * y);
     
-    self.shape.frame = (CGRect){CGRectGetMidX(self.frame) - self.radius,
+    _shapeCircle.frame = (CGRect){CGRectGetMidX(self.frame) - self.radius,
         CGRectGetMidY(self.frame) - self.radius, self.radius * 2, self.radius * 2};
-    self.shape.anchorPoint = CGPointMake(0.5, 0.5);
-    self.shape.path = [UIBezierPath bezierPathWithOvalInRect:(CGRect){0, 0, self.radius * 2, self.radius * 2}].CGPath;
+    _shapeCircle.anchorPoint = CGPointMake(0.5, 0.5);
+    _shapeCircle.path = [UIBezierPath bezierPathWithOvalInRect:(CGRect){0, 0, self.radius * 2, self.radius * 2}].CGPath;
 }
 
 - (void)didMoveToSuperview {
     
     [self.superview setClipsToBounds:YES];
     
-    self.shape = [CAShapeLayer layer];
-    self.shape.fillColor = self.onTintColor.CGColor;
-    self.shape.transform = CATransform3DMakeScale(0.0001, 0.0001, 0.0001);
-    [self.superview.layer insertSublayer:self.shape atIndex:0];
+    _shapeCircle = [CAShapeLayer layer];
+    _shapeCircle.fillColor = self.onTintColor.CGColor;
+    _shapeCircle.transform = CATransform3DMakeScale(0.0001, 0.0001, 0.0001);
+    [self.superview.layer insertSublayer:_shapeCircle atIndex:0];
     
     self.layer.borderColor = [UIColor whiteColor].CGColor;
     self.layer.cornerRadius = self.frame.size.height / 2;
@@ -68,15 +68,15 @@ NSString *const UUElementToValue   = @"UUElementToValue";
         }
         
         // Reset
-        [self.shape removeAnimationForKey:@"scaleDown"];
-        [self.shape removeAnimationForKey:@"borderDown"];
+        [_shapeCircle removeAnimationForKey:@"scaleDown"];
+        [_shapeCircle removeAnimationForKey:@"borderDown"];
         self.layer.borderWidth = 0;
         
         CABasicAnimation *scaleAnimation = [self animateKeyPath:@"transform.scale"
                                                       fromValue:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.0001, 0.0001, 0.0001)]
                                                         toValue:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 1.0)]
                                                          timing:kCAMediaTimingFunctionEaseIn];
-        [self.shape addAnimation:scaleAnimation forKey:@"scaleUp"];
+        [_shapeCircle addAnimation:scaleAnimation forKey:@"scaleUp"];
         
         CABasicAnimation *borderAnimation = [self animateKeyPath:@"borderWidth" fromValue:@0 toValue:@1 timing:kCAMediaTimingFunctionEaseIn];
         [self.layer addAnimation:borderAnimation forKey:@"borderUp"];
@@ -91,15 +91,15 @@ NSString *const UUElementToValue   = @"UUElementToValue";
         }
         
         // Reset
-        [self.shape removeAnimationForKey:@"scaleUp"];
-        [self.shape removeAnimationForKey:@"borderUp"];
+        [_shapeCircle removeAnimationForKey:@"scaleUp"];
+        [_shapeCircle removeAnimationForKey:@"borderUp"];
         self.layer.borderWidth = 1;
         
         CABasicAnimation *scaleAnimation = [self animateKeyPath:@"transform.scale"
                                                       fromValue:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 1.0)]
                                                         toValue:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.0001, 0.0001, 0.0001)]
                                                          timing:kCAMediaTimingFunctionEaseOut];
-        [self.shape addAnimation:scaleAnimation forKey:@"scaleDown"];
+        [_shapeCircle addAnimation:scaleAnimation forKey:@"scaleDown"];
         
         CABasicAnimation *borderAnimation = [self animateKeyPath:@"borderWidth" fromValue:@1 toValue:@0 timing:kCAMediaTimingFunctionEaseOut];
         [self.layer addAnimation:borderAnimation forKey:@"borderDown"];
@@ -110,15 +110,18 @@ NSString *const UUElementToValue   = @"UUElementToValue";
     }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    [self switchChanged:self];
-}
-
 - (void)setOn:(BOOL)on animated:(BOOL)animated {
+    
     [super setOn:on animated:animated];
     [self switchChanged:self];
 }
 
+#pragma mark - Observe
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    [self switchChanged:self];
+}
 
 #pragma mark - Private
 
@@ -152,6 +155,7 @@ NSString *const UUElementToValue   = @"UUElementToValue";
 
 
 - (CABasicAnimation *)animateKeyPath:(NSString *)keyPath fromValue:(id)from toValue:(id)to timing:(NSString *)timing {
+    
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:keyPath];
     animation.fromValue = from;
     animation.toValue = to;
@@ -163,7 +167,9 @@ NSString *const UUElementToValue   = @"UUElementToValue";
     return animation;
 }
 
+
 - (void)dealloc {
+    
     [self removeObserver:self forKeyPath:@"on"];
 }
 

@@ -51,19 +51,19 @@
     
     [_contentView addSubview:_colorSwitch];
     
-    _colorSwitch.animationElementsOn = @[
-                                        @{ UUElementView: _contentView.layer,
-                                           UUElementKeyPath: @"backgroundColor",
-                                           UUElementFromValue: (id)[UIColor clearColor].CGColor,
-                                           UUElementToValue: (id)[UIColor greenColor].CGColor }
-                                        ];
-    
-    _colorSwitch.animationElementsOff = @[
-                                         @{ UUElementView: _contentView.layer,
-                                            UUElementKeyPath: @"backgroundColor",
-                                            UUElementFromValue: (id)[UIColor clearColor].CGColor,
-                                            UUElementToValue: (id)[UIColor blackColor].CGColor }
-                                         ];
+//    _colorSwitch.animationElementsOn = @[
+//                                        @{ UUElementView: _contentView.layer,
+//                                           UUElementKeyPath: @"backgroundColor",
+//                                           UUElementFromValue: (id)[UIColor clearColor].CGColor,
+//                                           UUElementToValue: (id)[UIColor greenColor].CGColor }
+//                                        ];
+//    
+//    _colorSwitch.animationElementsOff = @[
+//                                         @{ UUElementView: _contentView.layer,
+//                                            UUElementKeyPath: @"backgroundColor",
+//                                            UUElementFromValue: (id)[UIColor clearColor].CGColor,
+//                                            UUElementToValue: (id)[UIColor blackColor].CGColor }
+//                                         ];
 
 }
 
