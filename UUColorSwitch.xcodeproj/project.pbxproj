@@ -14,6 +14,7 @@
 		2A9169DA1B5C0D350076A0AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9169D91B5C0D350076A0AC /* Images.xcassets */; };
 		2A9169DD1B5C0D350076A0AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9169DB1B5C0D350076A0AC /* LaunchScreen.xib */; };
 		2A9169E91B5C0D350076A0AC /* UUColorSwitchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9169E81B5C0D350076A0AC /* UUColorSwitchTests.m */; };
+		2A9169F51B5C0DFF0076A0AC /* UUColorSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9169F41B5C0DFF0076A0AC /* UUColorSwitch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		2A9169E21B5C0D350076A0AC /* UUColorSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UUColorSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9169E71B5C0D350076A0AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A9169E81B5C0D350076A0AC /* UUColorSwitchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UUColorSwitchTests.m; sourceTree = "<group>"; };
+		2A9169F31B5C0DFF0076A0AC /* UUColorSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUColorSwitch.h; sourceTree = "<group>"; };
+		2A9169F41B5C0DFF0076A0AC /* UUColorSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUColorSwitch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		2A9169CB1B5C0D350076A0AC /* UUColorSwitch */ = {
 			isa = PBXGroup;
 			children = (
+				2A9169F21B5C0DE50076A0AC /* ColorSwitch */,
 				2A9169D01B5C0D350076A0AC /* AppDelegate.h */,
 				2A9169D11B5C0D350076A0AC /* AppDelegate.m */,
 				2A9169D31B5C0D350076A0AC /* ViewController.h */,
@@ -117,6 +121,15 @@
 				2A9169E71B5C0D350076A0AC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A9169F21B5C0DE50076A0AC /* ColorSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				2A9169F31B5C0DFF0076A0AC /* UUColorSwitch.h */,
+				2A9169F41B5C0DFF0076A0AC /* UUColorSwitch.m */,
+			);
+			path = ColorSwitch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A9169D51B5C0D350076A0AC /* ViewController.m in Sources */,
+				2A9169F51B5C0DFF0076A0AC /* UUColorSwitch.m in Sources */,
 				2A9169D21B5C0D350076A0AC /* AppDelegate.m in Sources */,
 				2A9169CF1B5C0D350076A0AC /* main.m in Sources */,
 			);

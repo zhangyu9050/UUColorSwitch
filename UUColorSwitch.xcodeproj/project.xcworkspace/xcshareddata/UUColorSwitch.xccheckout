@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>95A61F4F-DE29-4147-ADEA-18F2A3FEBDDB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>UUColorSwitch</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6B82D4063ADB83F30DFE8F96B036C7D6068B64C7</key>
+		<string>https://github.com/zhangyu9050/UUColorSwitch.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>UUColorSwitch.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6B82D4063ADB83F30DFE8F96B036C7D6068B64C7</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/zhangyu9050/UUColorSwitch.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6B82D4063ADB83F30DFE8F96B036C7D6068B64C7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6B82D4063ADB83F30DFE8F96B036C7D6068B64C7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>UUColorSwitch</string>
+		</dict>
+	</array>
+</dict>
+</plist>
