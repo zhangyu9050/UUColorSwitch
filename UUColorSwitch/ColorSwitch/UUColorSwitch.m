@@ -27,15 +27,21 @@ NSString *const UUElementToValue   = @"UUElementToValue";
 
 - (void)layoutSubviews {
     
-    // Yay for math!
+    //计算坐标点到原点距离
     CGFloat x = MAX(CGRectGetMidX(self.frame), self.superview.frame.size.width - CGRectGetMidX(self.frame));
     CGFloat y = MAX(CGRectGetMidY(self.frame), self.superview.frame.size.height - CGRectGetMidY(self.frame));
     self.radius = sqrt(x * x + y * y);
     
-    _shapeCircle.frame = (CGRect){CGRectGetMidX(self.frame) - self.radius,
-        CGRectGetMidY(self.frame) - self.radius, self.radius * 2, self.radius * 2};
+    _shapeCircle.frame = CGRectMake(CGRectGetMidX(self.frame) - self.radius,
+                                    CGRectGetMidY(self.frame) - self.radius,
+                                    self.radius * 2,
+                                    self.radius * 2);
+    
     _shapeCircle.anchorPoint = CGPointMake(0.5, 0.5);
-    _shapeCircle.path = [UIBezierPath bezierPathWithOvalInRect:(CGRect){0, 0, self.radius * 2, self.radius * 2}].CGPath;
+    _shapeCircle.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0,
+                                                                          0,
+                                                                          self.radius * 2,
+                                                                          self.radius * 2)].CGPath;
 }
 
 - (void)didMoveToSuperview {
@@ -50,9 +56,7 @@ NSString *const UUElementToValue   = @"UUElementToValue";
     self.layer.borderColor = [UIColor whiteColor].CGColor;
     self.layer.cornerRadius = self.frame.size.height / 2;
     
-    if (self.superview) {
-        [self addObserver:self forKeyPath:@"on" options:(NSKeyValueObservingOptionNew) context:nil];
-    }
+    if (self.superview) [self addObserver:self forKeyPath:@"on" options:(NSKeyValueObservingOptionNew) context:nil];
     
     [self addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
 }
@@ -126,16 +130,24 @@ NSString *const UUElementToValue   = @"UUElementToValue";
 #pragma mark - Private
 
 - (void)animateElementsFrom:(NSArray *)elements {
+    
     for (NSDictionary *element in elements) {
-        if ([element[UUElementKeyPath] isEqualToString:@"textColor"] && [element[UUElementView] isKindOfClass:[UILabel class]]) {
+        
+        if ([element[UUElementKeyPath] isEqualToString:@"textColor"] &&
+            [element[UUElementView] isKindOfClass:[UILabel class]]) {
+            
             [UIView transitionWithView:element[UUElementView]
                               duration:kDURATION
                                options:UIViewAnimationOptionTransitionCrossDissolve
                             animations:^{
+                                
                                 [(UILabel *)element[UUElementView] setTextColor:element[UUElementToValue]];
                             }
                             completion:nil];
-        } else if ([element[UUElementKeyPath] isEqualToString:@"tintColor"] && [element[UUElementView] isKindOfClass:[UIButton class]]) {
+            
+        } else if ([element[UUElementKeyPath] isEqualToString:@"tintColor"] &&
+                   [element[UUElementView] isKindOfClass:[UIButton class]]) {
+            
             [UIView transitionWithView:element[UUElementView]
                               duration:kDURATION
                                options:UIViewAnimationOptionTransitionNone
@@ -143,12 +155,16 @@ NSString *const UUElementToValue   = @"UUElementToValue";
                                 [(UIButton *)element[UUElementView] setTintColor:element[UUElementToValue]];
                             }
                             completion:nil];
+            
         } else {
+            
             CABasicAnimation *elementAnimation = [self animateKeyPath:element[UUElementKeyPath]
                                                             fromValue:element[UUElementFromValue]
                                                               toValue:element[UUElementToValue]
                                                                timing:kCAMediaTimingFunctionEaseIn];
+            
             [element[UUElementView] addAnimation:elementAnimation forKey:element[UUElementKeyPath]];
+            
         }
     }
 }
