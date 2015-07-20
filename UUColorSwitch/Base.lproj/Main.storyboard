@@ -124,7 +124,7 @@ added to your friends list.</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buleView" destination="EZU-Df-h1D" id="Nck-gs-iO0"/>
+                        <outlet property="buleImageView" destination="nde-42-2UM" id="ldV-nT-uM1"/>
                         <outlet property="colorSwitch" destination="ExC-vP-mOz" id="Wiy-F0-Hjb"/>
                         <outlet property="lblBule" destination="Q2r-h2-wG4" id="2UW-g8-UCZ"/>
                     </connections>

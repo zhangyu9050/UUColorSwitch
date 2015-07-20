@@ -12,7 +12,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) IBOutlet UILabel *lblBule;
-@property (nonatomic, strong) IBOutlet UIView *buleView;
+@property (nonatomic, strong) IBOutlet UIImageView *buleImageView;
 @property (nonatomic, strong) IBOutlet UUColorSwitch *colorSwitch;
 
 
@@ -25,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self createSwitch];
+    [self configSwitch];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,23 +33,40 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)createSwitch{
+- (void)configSwitch{
     
+    __weak ViewController *weakSelf = self;
+    _colorSwitch.completion = ^(BOOL isFinish){
 
-    _colorSwitch.animationElementsOn = @[
-                                        @{ UUElementView: _buleView.layer,
-                                           UUElementKeyPath: @"backgroundColor",
-                                           UUElementFromValue: (id)[UIColor clearColor].CGColor,
-                                           UUElementToValue: (id)[UIColor greenColor].CGColor }
-                                        ];
+        [weakSelf animateLabel:weakSelf.lblBule duration:.35f onAnimation:isFinish];
+        [weakSelf animateImage:weakSelf.buleImageView duration:.35f onAnimation:isFinish];
+    };
+
+}
+
+- (void)animateLabel:(UILabel *)label duration:(NSTimeInterval )duration onAnimation:(BOOL )onAnimation{
+
+    [UIView transitionWithView:label
+                      duration:duration
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        
+                        UIColor *color = !onAnimation ? [UIColor colorWithRed:81/255.0 green:155/255.0 blue:249/255.0 alpha:1] : [UIColor whiteColor];
+                        [label setTextColor:color];
+                    }
+                    completion:nil];
+}
+
+- (void)animateImage:(UILabel *)label duration:(NSTimeInterval )duration onAnimation:(BOOL )onAnimation{
     
-    _colorSwitch.animationElementsOff = @[
-                                         @{ UUElementView: _buleView.layer,
-                                            UUElementKeyPath: @"backgroundColor",
-                                            UUElementFromValue: (id)[UIColor clearColor].CGColor,
-                                            UUElementToValue: (id)[UIColor clearColor].CGColor }
-                                         ];
-
+    [UIView transitionWithView:label
+                      duration:duration
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        
+                        _buleImageView.image = [UIImage imageNamed:onAnimation ? @"img_phone_on" : @"img_phone_off"];
+                    }
+                    completion:nil];
 }
 
 @end

@@ -8,13 +8,6 @@
 
 #import "UUColorSwitch.h"
 
-#define kDURATION   0.35
-
-NSString *const UUElementView      = @"UUElementView";
-NSString *const UUElementKeyPath   = @"UUElementKeyPath";
-NSString *const UUElementFromValue = @"UUElementFromValue";
-NSString *const UUElementToValue   = @"UUElementToValue";
-
 @interface UUColorSwitch()
 
 @property (nonatomic, strong) CAShapeLayer *shapeCircle;
@@ -67,9 +60,7 @@ NSString *const UUElementToValue   = @"UUElementToValue";
 
     if (sender.on) {
         [CATransaction begin];
-        if (self.completionOn) {
-            [CATransaction setCompletionBlock:self.completionOn];
-        }
+        
         
         // Reset
         [_shapeCircle removeAnimationForKey:@"scaleDown"];
@@ -89,15 +80,13 @@ NSString *const UUElementToValue   = @"UUElementToValue";
         
         [self.layer addAnimation:borderAnimation forKey:@"borderUp"];
         
-        [self animateElementsFrom:self.animationElementsOn];
+        if (self.completion) self.completion(YES);
         [CATransaction commit];
         
     } else {
         
         [CATransaction begin];
-        if (self.completionOff) {
-            [CATransaction setCompletionBlock:self.completionOff];
-        }
+        
         
         // Reset
         [_shapeCircle removeAnimationForKey:@"scaleUp"];
@@ -118,7 +107,7 @@ NSString *const UUElementToValue   = @"UUElementToValue";
         
         [self.layer addAnimation:borderAnimation forKey:@"borderDown"];
         
-        [self animateElementsFrom:self.animationElementsOff];
+        if (self.completion) self.completion(NO);
         [CATransaction commit];
         
     }
@@ -139,47 +128,6 @@ NSString *const UUElementToValue   = @"UUElementToValue";
 
 #pragma mark - Private
 
-- (void)animateElementsFrom:(NSArray *)elements {
-    
-    for (NSDictionary *element in elements) {
-        
-        if ([element[UUElementKeyPath] isEqualToString:@"textColor"] &&
-            [element[UUElementView] isKindOfClass:[UILabel class]]) {
-            
-            [UIView transitionWithView:element[UUElementView]
-                              duration:kDURATION
-                               options:UIViewAnimationOptionTransitionCrossDissolve
-                            animations:^{
-                                
-                                [(UILabel *)element[UUElementView] setTextColor:element[UUElementToValue]];
-                            }
-                            completion:nil];
-            
-        } else if ([element[UUElementKeyPath] isEqualToString:@"tintColor"] &&
-                   [element[UUElementView] isKindOfClass:[UIButton class]]) {
-            
-            [UIView transitionWithView:element[UUElementView]
-                              duration:kDURATION
-                               options:UIViewAnimationOptionTransitionNone
-                            animations:^{
-                                [(UIButton *)element[UUElementView] setTintColor:element[UUElementToValue]];
-                            }
-                            completion:nil];
-            
-        } else {
-            
-            CABasicAnimation *elementAnimation = [self animateKeyPath:element[UUElementKeyPath]
-                                                            fromValue:element[UUElementFromValue]
-                                                              toValue:element[UUElementToValue]
-                                                               timing:kCAMediaTimingFunctionEaseIn];
-            
-            [element[UUElementView] addAnimation:elementAnimation forKey:element[UUElementKeyPath]];
-            
-        }
-    }
-}
-
-
 - (CABasicAnimation *)animateKeyPath:(NSString *)keyPath fromValue:(id)from toValue:(id)to timing:(NSString *)timing {
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:keyPath];
@@ -189,7 +137,7 @@ NSString *const UUElementToValue   = @"UUElementToValue";
     animation.timingFunction = [CAMediaTimingFunction functionWithName:timing];
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
-    animation.duration = kDURATION;
+    animation.duration = .35f;
     return animation;
 }
 
