@@ -82,13 +82,18 @@ NSString *const UUElementToValue   = @"UUElementToValue";
                                                          timing:kCAMediaTimingFunctionEaseIn];
         [_shapeCircle addAnimation:scaleAnimation forKey:@"scaleUp"];
         
-        CABasicAnimation *borderAnimation = [self animateKeyPath:@"borderWidth" fromValue:@0 toValue:@1 timing:kCAMediaTimingFunctionEaseIn];
+        CABasicAnimation *borderAnimation = [self animateKeyPath:@"borderWidth"
+                                                       fromValue:@0
+                                                         toValue:@1
+                                                          timing:kCAMediaTimingFunctionEaseIn];
+        
         [self.layer addAnimation:borderAnimation forKey:@"borderUp"];
         
         [self animateElementsFrom:self.animationElementsOn];
         [CATransaction commit];
         
     } else {
+        
         [CATransaction begin];
         if (self.completionOff) {
             [CATransaction setCompletionBlock:self.completionOff];
@@ -103,9 +108,14 @@ NSString *const UUElementToValue   = @"UUElementToValue";
                                                       fromValue:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 1.0)]
                                                         toValue:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.0001, 0.0001, 0.0001)]
                                                          timing:kCAMediaTimingFunctionEaseOut];
+        
         [_shapeCircle addAnimation:scaleAnimation forKey:@"scaleDown"];
         
-        CABasicAnimation *borderAnimation = [self animateKeyPath:@"borderWidth" fromValue:@1 toValue:@0 timing:kCAMediaTimingFunctionEaseOut];
+        CABasicAnimation *borderAnimation = [self animateKeyPath:@"borderWidth"
+                                                       fromValue:@1
+                                                         toValue:@0
+                                                          timing:kCAMediaTimingFunctionEaseOut];
+        
         [self.layer addAnimation:borderAnimation forKey:@"borderDown"];
         
         [self animateElementsFrom:self.animationElementsOff];

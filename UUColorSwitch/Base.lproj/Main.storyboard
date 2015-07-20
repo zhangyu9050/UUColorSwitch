@@ -21,17 +21,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Sync" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P0-na-0rI">
-                                        <rect key="frame" x="239" y="30" width="121" height="20.5"/>
+                                        <rect key="frame" x="239" y="35" width="121" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="121" id="1eb-8n-m3q"/>
                                             <constraint firstAttribute="height" constant="20.5" id="Jyt-4N-MR7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.31764705882352939" green="0.60784313725490191" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZU-Df-h1D">
-                                        <rect key="frame" x="0.0" y="62" width="600" height="255"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZU-Df-h1D">
+                                        <rect key="frame" x="0.0" y="67" width="600" height="255"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect Contacts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2r-h2-wG4">
                                                 <rect key="frame" x="226" y="43" width="148" height="21"/>
@@ -40,7 +40,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="QN4-UH-oBi"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.31764705879999999" green="0.60784313729999995" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbD-A6-XcT">
@@ -69,11 +69,12 @@ added to your friends list.</string>
                                                     <constraint firstAttribute="height" constant="36" id="cuu-6X-rM3"/>
                                                 </constraints>
                                             </imageView>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExC-vP-mOz">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExC-vP-mOz" customClass="UUColorSwitch">
                                                 <rect key="frame" x="347" y="153" width="51" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31" id="UdY-ax-tJ3"/>
                                                 </constraints>
+                                                <color key="onTintColor" red="0.31764705879999999" green="0.60784313729999995" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </switch>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,7 +93,7 @@ added to your friends list.</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNA-Tq-GxD">
-                                        <rect key="frame" x="0.0" y="319" width="600" height="255"/>
+                                        <rect key="frame" x="0.0" y="324" width="600" height="255"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="255" id="YwD-cE-IAs"/>
@@ -105,7 +106,7 @@ added to your friends list.</string>
                                     <constraint firstAttribute="centerX" secondItem="6P0-na-0rI" secondAttribute="centerX" id="4yw-kz-AtY"/>
                                     <constraint firstItem="UNA-Tq-GxD" firstAttribute="leading" secondItem="0A7-vO-hBJ" secondAttribute="leading" id="6nw-SU-SOp"/>
                                     <constraint firstItem="EZU-Df-h1D" firstAttribute="leading" secondItem="0A7-vO-hBJ" secondAttribute="leading" id="BRW-Sv-Y7c"/>
-                                    <constraint firstItem="6P0-na-0rI" firstAttribute="top" secondItem="0A7-vO-hBJ" secondAttribute="top" constant="30" id="PQd-KV-ie0"/>
+                                    <constraint firstItem="6P0-na-0rI" firstAttribute="top" secondItem="0A7-vO-hBJ" secondAttribute="top" constant="35" id="PQd-KV-ie0"/>
                                     <constraint firstItem="EZU-Df-h1D" firstAttribute="top" secondItem="6P0-na-0rI" secondAttribute="bottom" constant="11.5" id="bBW-bW-qFb"/>
                                     <constraint firstItem="UNA-Tq-GxD" firstAttribute="top" secondItem="EZU-Df-h1D" secondAttribute="bottom" constant="2" id="dHR-iF-d6O"/>
                                     <constraint firstAttribute="trailing" secondItem="UNA-Tq-GxD" secondAttribute="trailing" id="fFZ-RP-ien"/>
@@ -122,6 +123,11 @@ added to your friends list.</string>
                             <constraint firstItem="0A7-vO-hBJ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="sK2-3L-mOG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buleView" destination="EZU-Df-h1D" id="Nck-gs-iO0"/>
+                        <outlet property="colorSwitch" destination="ExC-vP-mOz" id="Wiy-F0-Hjb"/>
+                        <outlet property="lblBule" destination="Q2r-h2-wG4" id="2UW-g8-UCZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
