@@ -56,21 +56,21 @@ added to your friends list.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_users1" translatesAutoresizingMaskIntoConstraints="NO" id="UTy-aU-jUP">
-                                                <rect key="frame" x="182.5" y="141" width="39" height="56"/>
+                                                <rect key="frame" x="182" y="141" width="39" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="CxN-Fv-cQ7"/>
                                                     <constraint firstAttribute="width" constant="39" id="WCD-Ey-K1q"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_phone_off" translatesAutoresizingMaskIntoConstraints="NO" id="nde-42-2UM">
-                                                <rect key="frame" x="238.5" y="151" width="23" height="36"/>
+                                                <rect key="frame" x="238" y="151" width="23" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="23" id="TOs-8q-BBV"/>
                                                     <constraint firstAttribute="height" constant="36" id="cuu-6X-rM3"/>
                                                 </constraints>
                                             </imageView>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExC-vP-mOz" customClass="UUColorSwitch">
-                                                <rect key="frame" x="347" y="153" width="51" height="31"/>
+                                                <rect key="frame" x="346" y="153" width="51" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31" id="UdY-ax-tJ3"/>
                                                 </constraints>
@@ -92,11 +92,63 @@ added to your friends list.</string>
                                             <constraint firstItem="ExC-vP-mOz" firstAttribute="top" secondItem="wbD-A6-XcT" secondAttribute="bottom" constant="39" id="u6U-fv-az0"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNA-Tq-GxD">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNA-Tq-GxD">
                                         <rect key="frame" x="0.0" y="324" width="600" height="255"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Discovery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xQ-O3-Lwa">
+                                                <rect key="frame" x="231" y="43" width="137" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="137" id="5Ik-yS-cjp"/>
+                                                    <constraint firstAttribute="height" constant="21" id="cNm-W8-O30"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.31764705879999999" green="0.60784313729999995" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn on to allow your phone number to be dis-played in your friends’ Contacts." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDH-CH-SYP">
+                                                <rect key="frame" x="149" y="75" width="302" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="302" id="fy2-qo-kef"/>
+                                                    <constraint firstAttribute="height" constant="35" id="vpS-ke-BcB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JbW-Dw-VMP" customClass="UUColorSwitch">
+                                                <rect key="frame" x="350" y="149" width="51" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="Zhs-y5-uIH"/>
+                                                </constraints>
+                                                <color key="onTintColor" red="0.25882352941176473" green="0.82745098039215681" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                            </switch>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_users2" translatesAutoresizingMaskIntoConstraints="NO" id="CnD-EZ-V3j">
+                                                <rect key="frame" x="230" y="137" width="39" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="39" id="G2o-tB-a7t"/>
+                                                    <constraint firstAttribute="height" constant="56" id="au7-aW-ZhS"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_phone_off" translatesAutoresizingMaskIntoConstraints="NO" id="sPG-XI-jnO">
+                                                <rect key="frame" x="190" y="147" width="23" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="Abx-Ra-IpL"/>
+                                                    <constraint firstAttribute="width" constant="23" id="IYr-i7-eKB"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="CnD-EZ-V3j" firstAttribute="top" secondItem="nDH-CH-SYP" secondAttribute="bottom" constant="27" id="7hu-oi-feD"/>
+                                            <constraint firstAttribute="centerX" secondItem="CnD-EZ-V3j" secondAttribute="centerX" constant="50" id="Kci-lj-KAj"/>
+                                            <constraint firstAttribute="centerX" secondItem="JbW-Dw-VMP" secondAttribute="centerX" constant="-74" id="Lli-1G-hWQ"/>
+                                            <constraint firstAttribute="centerX" secondItem="nDH-CH-SYP" secondAttribute="centerX" id="MX3-6x-rKQ"/>
+                                            <constraint firstItem="sPG-XI-jnO" firstAttribute="top" secondItem="nDH-CH-SYP" secondAttribute="bottom" constant="37" id="TQS-b5-CoG"/>
                                             <constraint firstAttribute="height" constant="255" id="YwD-cE-IAs"/>
+                                            <constraint firstItem="CnD-EZ-V3j" firstAttribute="leading" secondItem="sPG-XI-jnO" secondAttribute="trailing" constant="17" id="gFV-Xu-ZST"/>
+                                            <constraint firstItem="JbW-Dw-VMP" firstAttribute="top" secondItem="nDH-CH-SYP" secondAttribute="bottom" constant="39" id="gbr-H7-u4E"/>
+                                            <constraint firstItem="nDH-CH-SYP" firstAttribute="top" secondItem="9xQ-O3-Lwa" secondAttribute="bottom" constant="11" id="waF-cD-2BZ"/>
+                                            <constraint firstItem="9xQ-O3-Lwa" firstAttribute="top" secondItem="UNA-Tq-GxD" secondAttribute="top" constant="43" id="waO-Qz-llG"/>
+                                            <constraint firstAttribute="centerX" secondItem="9xQ-O3-Lwa" secondAttribute="centerX" id="zfD-ZH-5IA"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -125,8 +177,11 @@ added to your friends list.</string>
                     </view>
                     <connections>
                         <outlet property="buleImageView" destination="nde-42-2UM" id="ldV-nT-uM1"/>
-                        <outlet property="colorSwitch" destination="ExC-vP-mOz" id="Wiy-F0-Hjb"/>
+                        <outlet property="buleSwitch" destination="ExC-vP-mOz" id="ajh-lS-Ewa"/>
+                        <outlet property="greenImageView" destination="sPG-XI-jnO" id="h2q-Cg-buR"/>
+                        <outlet property="greenSwitch" destination="JbW-Dw-VMP" id="TqF-om-iB4"/>
                         <outlet property="lblBule" destination="Q2r-h2-wG4" id="2UW-g8-UCZ"/>
+                        <outlet property="lblGreen" destination="9xQ-O3-Lwa" id="HB8-Bo-qLw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -137,5 +192,6 @@ added to your friends list.</string>
     <resources>
         <image name="img_phone_off" width="45" height="71"/>
         <image name="img_users1" width="77" height="111"/>
+        <image name="img_users2" width="77" height="111"/>
     </resources>
 </document>

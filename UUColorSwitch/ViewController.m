@@ -13,7 +13,11 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *lblBule;
 @property (nonatomic, strong) IBOutlet UIImageView *buleImageView;
-@property (nonatomic, strong) IBOutlet UUColorSwitch *colorSwitch;
+@property (nonatomic, strong) IBOutlet UUColorSwitch *buleSwitch;
+
+@property (nonatomic, strong) IBOutlet UILabel *lblGreen;
+@property (nonatomic, strong) IBOutlet UIImageView *greenImageView;
+@property (nonatomic, strong) IBOutlet UUColorSwitch *greenSwitch;
 
 
 
@@ -36,10 +40,16 @@
 - (void)configSwitch{
     
     __weak ViewController *weakSelf = self;
-    _colorSwitch.completion = ^(BOOL isFinish){
+    _buleSwitch.completion = ^(BOOL isFinish){
 
         [weakSelf animateLabel:weakSelf.lblBule duration:.35f onAnimation:isFinish];
         [weakSelf animateImage:weakSelf.buleImageView duration:.35f onAnimation:isFinish];
+    };
+    
+    _greenSwitch.completion = ^(BOOL isFinish){
+        
+        [weakSelf animateLabel:weakSelf.lblGreen duration:.35f onAnimation:isFinish];
+        [weakSelf animateImage:weakSelf.greenImageView duration:.35f onAnimation:isFinish];
     };
 
 }
@@ -57,14 +67,14 @@
                     completion:nil];
 }
 
-- (void)animateImage:(UILabel *)label duration:(NSTimeInterval )duration onAnimation:(BOOL )onAnimation{
+- (void)animateImage:(UIImageView *)imageView duration:(NSTimeInterval )duration onAnimation:(BOOL )onAnimation{
     
-    [UIView transitionWithView:label
+    [UIView transitionWithView:imageView
                       duration:duration
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         
-                        _buleImageView.image = [UIImage imageNamed:onAnimation ? @"img_phone_on" : @"img_phone_off"];
+                        imageView.image = [UIImage imageNamed:onAnimation ? @"img_phone_on" : @"img_phone_off"];
                     }
                     completion:nil];
 }
